@@ -163,6 +163,7 @@ export default function App() {
                   }}
                   onSearchClick={() => setSearchModalOpen(true)}
                   onQuickCategoryClick={handleQuickCategoryClick}
+                  onSelectTour={setSelectedTour}
                 />
                 
                 {/* Netflix category rows */}

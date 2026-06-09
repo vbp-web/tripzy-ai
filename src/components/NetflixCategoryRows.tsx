@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { motion } from 'motion/react';
 import { Star, Clock, ChevronLeft, ChevronRight, Heart, Sparkles, MapPin } from 'lucide-react';
 import { Tour } from '../types';
 import { formatINR } from '../utils/currency';
@@ -58,7 +59,13 @@ export default function NetflixCategoryRows({
       })}
 
       {/* Explore by Category section with Frosted Glass cards */}
-      <div className="pt-4">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.96, y: 20 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        className="pt-4"
+      >
         <div className="flex justify-between items-end mb-6 px-1">
           <div>
             <h2 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-[#111111]">
@@ -85,7 +92,7 @@ export default function NetflixCategoryRows({
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
@@ -122,7 +129,13 @@ function CategoryRow({
   };
 
   return (
-    <div className="relative group/row">
+    <motion.div 
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className="relative group/row"
+    >
       <div className="flex items-end justify-between mb-5 px-1">
         <div>
           <h2 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-[#111111]">
@@ -246,6 +259,6 @@ function CategoryRow({
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 }
